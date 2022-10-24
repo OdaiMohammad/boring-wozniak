@@ -1,4 +1,5 @@
-italy-latest.osm.pbf
 .ipynb_checkpoints
 course-resources
 venv
+.idea
+data
