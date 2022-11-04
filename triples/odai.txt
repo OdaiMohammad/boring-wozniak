@@ -1,0 +1,3 @@
+(building, hasFlores, 4)
+(building, isonway, {wayId})
+(way, passesThrough, NodeId)
