@@ -1,0 +1,15 @@
+(Way, WY['waterway'], Literal(row['waterway'], datatype=XSD.String))
+(Way, WY['lands'], Literal(row['lands'], datatype=XSD.String))
+(Way, WY['surface'], Literal(row['surface'], datatype=XSD.String))
+(Way, WY['oneway'], Literal(row['oneway'], datatype=XSD.boolean))
+(Way, WY['smoothness'], Literal(row['smoothness'], datatype=XSD.String))
+(Way, WY['ref'], Literal(row['ref'], datatype=XSD.String)) alcune strade hanno come valore del tipo A1, SP10,...
+(Way, WY['tourism'], Literal(row['tourism'], datatype=XSD.String))
+(Way, WY['crossing'], Literal(row['crossing'], datatype=XSD.String)) tipo di attraversamento pedonale
+
+(Node, ND['highway'], Literal(row['highway'], datatype=XSD.string)) può essere usato per individuare i semafori 'traffic_signals
+
+
+(Building, Building['historic'], Literal(row['historic'], datatype=XSD.boolean))
+
+
