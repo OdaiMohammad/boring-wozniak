@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.dei.unipd.it/database2/cutomOSMOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.dei.unipd.it/database2/cutomOSMOntology">
+    <Prefix name="" IRI="http://www.dei.unipd.it/database2/cutomOSMOntology"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Building"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#City"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Node"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Way"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEndNode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStartNode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isInCity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPassingThroughNode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCoordinate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasId"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLatitude"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLongitutde"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasName"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Building"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isInCity"/>
+                <Class IRI="#City"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasId"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasName"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#City"/>
+        <ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasId"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasName"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Node"/>
+        <ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasId"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasLatitude"/>
+                <Datatype abbreviatedIRI="xsd:double"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasLongitutde"/>
+                <Datatype abbreviatedIRI="xsd:double"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Way"/>
+        <ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <ObjectUnionOf>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#hasEndNode"/>
+                        <Class IRI="#Node"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#isPassingThroughNode"/>
+                        <Class IRI="#Node"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectUnionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#hasStartNode"/>
+                    <Class IRI="#Node"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasId"/>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasName"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <DisjointClasses>
+        <Class IRI="#Building"/>
+        <Class IRI="#City"/>
+        <Class IRI="#Node"/>
+        <Class IRI="#Way"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isInCity"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasEndNode"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasStartNode"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isPassingThroughNode"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasEndNode"/>
+        <Class IRI="#Way"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStartNode"/>
+        <Class IRI="#Way"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPassingThroughNode"/>
+        <Class IRI="#Way"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class IRI="#Building"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEndNode"/>
+        <Class IRI="#Node"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStartNode"/>
+        <Class IRI="#Node"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPassingThroughNode"/>
+        <Class IRI="#Node"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class IRI="#City"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasCoordinate"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasLatitude"/>
+        <DataProperty IRI="#hasCoordinate"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasLongitutde"/>
+        <DataProperty IRI="#hasCoordinate"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasName"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasId"/>
+        <Class IRI="#City"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasId"/>
+        <Class IRI="#Node"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasId"/>
+        <Class IRI="#Way"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLatitude"/>
+        <Class IRI="#Node"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLongitutde"/>
+        <Class IRI="#Node"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasName"/>
+        <Class IRI="#City"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasName"/>
+        <Class IRI="#Way"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasId"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLatitude"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLongitutde"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DisjointDataProperties>
+        <DataProperty IRI="#hasId"/>
+        <DataProperty IRI="#hasName"/>
+    </DisjointDataProperties>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
