@@ -1,247 +1,3005 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="http://www.dei.unipd.it/database2/cutomOSMOntology"
      xml:base="http://www.dei.unipd.it/database2/cutomOSMOntology"
+     xmlns:osm="http://www.dei.unipd.it/database2/cutomOSMOntology#osm:"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.dei.unipd.it/database2/cutomOSMOntology">
-    <Prefix name="" IRI="http://www.dei.unipd.it/database2/cutomOSMOntology"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Declaration>
-        <Class IRI="#Building"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#City"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Node"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Way"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasEndNode"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasStartNode"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isInCity"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isPassingThroughNode"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasCoordinate"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasId"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasLatitude"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasLongitutde"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasName"/>
-    </Declaration>
-    <EquivalentClasses>
-        <Class IRI="#Building"/>
-        <ObjectIntersectionOf>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#isInCity"/>
-                <Class IRI="#City"/>
-            </ObjectSomeValuesFrom>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasId"/>
-                <Datatype abbreviatedIRI="xsd:integer"/>
-            </DataSomeValuesFrom>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasName"/>
-                <Datatype abbreviatedIRI="xsd:string"/>
-            </DataSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#City"/>
-        <ObjectIntersectionOf>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasId"/>
-                <Datatype abbreviatedIRI="xsd:integer"/>
-            </DataSomeValuesFrom>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasName"/>
-                <Datatype abbreviatedIRI="xsd:string"/>
-            </DataSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#Node"/>
-        <ObjectIntersectionOf>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasId"/>
-                <Datatype abbreviatedIRI="xsd:integer"/>
-            </DataSomeValuesFrom>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasLatitude"/>
-                <Datatype abbreviatedIRI="xsd:double"/>
-            </DataSomeValuesFrom>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasLongitutde"/>
-                <Datatype abbreviatedIRI="xsd:double"/>
-            </DataSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#Way"/>
-        <ObjectIntersectionOf>
-            <ObjectIntersectionOf>
-                <ObjectUnionOf>
-                    <ObjectSomeValuesFrom>
-                        <ObjectProperty IRI="#hasEndNode"/>
-                        <Class IRI="#Node"/>
-                    </ObjectSomeValuesFrom>
-                    <ObjectSomeValuesFrom>
-                        <ObjectProperty IRI="#isPassingThroughNode"/>
-                        <Class IRI="#Node"/>
-                    </ObjectSomeValuesFrom>
-                </ObjectUnionOf>
-                <ObjectSomeValuesFrom>
-                    <ObjectProperty IRI="#hasStartNode"/>
-                    <Class IRI="#Node"/>
-                </ObjectSomeValuesFrom>
-            </ObjectIntersectionOf>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasId"/>
-                <Datatype abbreviatedIRI="xsd:integer"/>
-            </DataSomeValuesFrom>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasName"/>
-                <Datatype abbreviatedIRI="xsd:string"/>
-            </DataSomeValuesFrom>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <DisjointClasses>
-        <Class IRI="#Building"/>
-        <Class IRI="#City"/>
-        <Class IRI="#Node"/>
-        <Class IRI="#Way"/>
-    </DisjointClasses>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#isInCity"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasEndNode"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasStartNode"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#isPassingThroughNode"/>
-    </FunctionalObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasEndNode"/>
-        <Class IRI="#Way"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasStartNode"/>
-        <Class IRI="#Way"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isPassingThroughNode"/>
-        <Class IRI="#Way"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-        <Class IRI="#Building"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasEndNode"/>
-        <Class IRI="#Node"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasStartNode"/>
-        <Class IRI="#Node"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isPassingThroughNode"/>
-        <Class IRI="#Node"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-        <Class IRI="#City"/>
-    </ObjectPropertyRange>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasCoordinate"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasLatitude"/>
-        <DataProperty IRI="#hasCoordinate"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasLongitutde"/>
-        <DataProperty IRI="#hasCoordinate"/>
-    </SubDataPropertyOf>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#hasName"/>
-    </FunctionalDataProperty>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasId"/>
-        <Class IRI="#City"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasId"/>
-        <Class IRI="#Node"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasId"/>
-        <Class IRI="#Way"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasLatitude"/>
-        <Class IRI="#Node"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasLongitutde"/>
-        <Class IRI="#Node"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasName"/>
-        <Class IRI="#City"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasName"/>
-        <Class IRI="#Way"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasId"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasLatitude"/>
-        <Datatype abbreviatedIRI="xsd:double"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasLongitutde"/>
-        <Datatype abbreviatedIRI="xsd:double"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasName"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DisjointDataProperties>
-        <DataProperty IRI="#hasId"/>
-        <DataProperty IRI="#hasName"/>
-    </DisjointDataProperties>
-</Ontology>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology">
+        <rdfs:comment>This is a simple ontology about OpenStreetMap, cities, roads, buildings, and services.</rdfs:comment>
+        <rdfs:isDefinedBy>Aliia Sultanova
+Michele Canale
+Odai Mohammad
+Yongxiang Ji</rdfs:isDefinedBy>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#osm:usage -->
+
+    <owl:AnnotationProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#osm:usage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#amenityIsInCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#amenityIsInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasAmenity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#buildingIsInCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#buildingIsInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuilding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasAmenity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasAmenity">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuilding -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuilding">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasEndNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasEndNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#roadHasNode"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isEndNode"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasMiddleNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasMiddleNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#roadHasNode"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isMiddleNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#nodeIsInCity"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoad -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoad">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasShop -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasShop">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#cityHasPlace"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#shopIsInCity"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasStartNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasStartNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#roadHasNode"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isStartNode"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isAmenity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isAmenity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Building"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isEndNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isEndNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isOnRoad"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isMiddleNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isMiddleNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isOnRoad"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isOnRoad -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isOnRoad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Road"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isShop -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isShop">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Building"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isStartNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isStartNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isOnRoad"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#nodeIsInCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#nodeIsInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#nodeIsOnRoad -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#nodeIsOnRoad">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#isOnRoad"/>
+        <owl:inverseOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#roadHasNode"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Place"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#roadHasNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#roadHasNode">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Road"/>
+        <rdfs:range rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#roadIsInCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#roadIsInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#shopIsInCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#shopIsInCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#placeIsInCity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty">
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Building"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasCivilNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasCivilNumber">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasCoordinate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasCoordinate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasEmail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasEmail">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasHeight">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLatitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasCoordinate"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasLength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitutde -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitutde">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasCoordinate"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasMaxSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasMaxSpeed">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#MotorRoad"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasNumberOfFlats -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasNumberOfFlats">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasNumberOfLanes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasNumberOfLanes">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasNumberOfLevels -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasNumberOfLevels">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasOpeningHours -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasOpeningHours">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasOperator -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasOperator">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasPhone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasPhone">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasPostCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasPostCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Road"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasStreetName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasStreetName">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasSurface -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasSurface">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasUse -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasUse">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasWebsite -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasWebsite">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasBuildingDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isLit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isLit">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isOneWay -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isOneWay">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#isOvertakingAllowed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#isOvertakingAllowed">
+        <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasRoadDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#BicycleRoad -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#BicycleRoad">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Road"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#Building -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#Building">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#BusRoad -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#BusRoad">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#MotorRoad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#CarRoad -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#CarRoad">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#MotorRoad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#City -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#City">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#FootRoad -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#FootRoad">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Road"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#MotorRoad -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#MotorRoad">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Road"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#Node -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#Node">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasId"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLatitude"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitutde"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <osm:usage>Nodes can be used to define standalone point features, but are more often used to define the shape or &quot;path&quot; of a way.</osm:usage>
+        <rdfs:comment>A node is one of the core elements in the OpenStreetMap data model. It consists of a single point in space defined by its latitude, longitude and node id.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#Place -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#Place">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasId"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasName"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#Road -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#Road">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasEndNode"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasMiddleNode"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+                                    </owl:Restriction>
+                                </owl:unionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasStartNode"/>
+                                <owl:someValuesFrom rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Node"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasId"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasName"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <osm:usage>Technically a way is an ordered list of nodes which normally also has at least one tags or is included within a relations. A way can have between 2 and 2,000 nodes, although it&apos;s possible that faulty ways with zero or a single node exist. A way can be open or closed.</osm:usage>
+        <rdfs:comment>A way is one of the fundamental elements of the map. In everyday language, it is a line. A way normally represents a linear feature on the ground</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#Shop -->
+
+    <owl:Class rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop">
+        <rdfs:subClassOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#ProtezioneCivile -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#ProtezioneCivile">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#agrarian -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#agrarian">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#alcohol -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#alcohol">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#animal_breeding -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#animal_breeding">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#animal_training -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#animal_training">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#anime -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#anime">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#antiques -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#antiques">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#appliance -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#appliance">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#archive -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#archive">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#art -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#art">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#arts_centre -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#arts_centre">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#atm -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#atm">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#baby_goods -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#baby_goods">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bag -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bag">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bakery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bakery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bank -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bank">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bar -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bar">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bathroom_furnishing -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bathroom_furnishing">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bbq -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bbq">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#beauty -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#beauty">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bed -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bed">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bench -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bench">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#beverages -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#beverages">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_parking -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_parking">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_rental -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_rental">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_repair_station -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_repair_station">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#biergarten -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#biergarten">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#binoculars -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#binoculars">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#boat -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#boat">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#boat_rental -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#boat_rental">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#boat_storage -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#boat_storage">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bookmaker -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bookmaker">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#books -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#books">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#boutique -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#boutique">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bureau_de_change -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bureau_de_change">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bus_station -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bus_station">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bus_tickets -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bus_tickets">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#butcher -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#butcher">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cabinet -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cabinet">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cafe -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cafe">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#camera -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#camera">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#canteen -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#canteen">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car_parts -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car_parts">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car_rental -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car_rental">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car_repair -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car_repair">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car_sharing -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car_sharing">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car_wash -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car_wash">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#carpet -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#carpet">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#charging_station -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#charging_station">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#charity -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#charity">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cheese -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cheese">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#chemist -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#chemist">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#childcare -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#childcare">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#chocolate -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#chocolate">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cinema -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cinema">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#clinic -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#clinic">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#clock -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#clock">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#clothes -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#clothes">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#coffee -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#coffee">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#college -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#college">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#community_centre -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#community_centre">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#compressed_air -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#compressed_air">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#computer -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#computer">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#confectionery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#confectionery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#conference_centre -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#conference_centre">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#construction -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#construction">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#convenience -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#convenience">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#copyshop -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#copyshop">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cosmetics -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cosmetics">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#courier -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#courier">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#courthouse -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#courthouse">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#craft -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#craft">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#crematorium -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#crematorium">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#curtain -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#curtain">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#dairy -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#dairy">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#dancing_school -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#dancing_school">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#deli -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#deli">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#dentist -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#dentist">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#department_store -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#department_store">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#doctors -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#doctors">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#doityourself -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#doityourself">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#dojo -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#dojo">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#doors -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#doors">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#drinking_water -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#drinking_water">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#driving_school -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#driving_school">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#dry_cleaning -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#dry_cleaning">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#e-cigarette -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#e-cigarette">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#educational_farm -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#educational_farm">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#electric -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#electric">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#electrical -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#electrical">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#electronics -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#electronics">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#erotic -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#erotic">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#estate_agent -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#estate_agent">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#events_venue -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#events_venue">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fabric -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fabric">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fairtrade -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fairtrade">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#farm -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#farm">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fashion -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fashion">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fashion_accessories -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fashion_accessories">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fast_food -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fast_food">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#ferry_terminal -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#ferry_terminal">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fire_station -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fire_station">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#florist -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#florist">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fountain -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fountain">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#frame -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#frame">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#frozen_food -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#frozen_food">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#fuel -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#fuel">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#funeral_directors -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#funeral_directors">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#funeral_hall -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#funeral_hall">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#furniture -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#furniture">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#gambling -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#gambling">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#games -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#games">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#garden_centre -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#garden_centre">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#general -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#general">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#gift -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#gift">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#glass -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#glass">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#glaziery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#glaziery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#gold_trade -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#gold_trade">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#grave_yard -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#grave_yard">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#greengrocer -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#greengrocer">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#groceryStore -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#groceryStore">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#groundskeeping -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#groundskeeping">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hairdresser -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hairdresser">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hairdresser_supply -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hairdresser_supply">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#harbourmaster -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#harbourmaster">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hardware -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hardware">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#health_food -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#health_food">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hearing_aids -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hearing_aids">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#herbalist -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#herbalist">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hifi -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hifi">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hospital -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hospital">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#household_linen -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#household_linen">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#houseware -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#houseware">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hunting -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hunting">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#ice_cream -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#ice_cream">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#interior_decoration -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#interior_decoration">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#internet_cafe -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#internet_cafe">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#jewelry -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#jewelry">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#kindergarten -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#kindergarten">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#kiosk -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#kiosk">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#kitchen -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#kitchen">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#language_school -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#language_school">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#laundry -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#laundry">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#leather -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#leather">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#left_luggage -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#left_luggage">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#letter_box -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#letter_box">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#library -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#library">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#lottery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#lottery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#mall -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#mall">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#marketplace -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#marketplace">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#masks -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#masks">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#massage -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#massage">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#medical_supply -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#medical_supply">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#mobile_phone -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#mobile_phone">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#model -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#model">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#monastery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#monastery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#money_lender -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#money_lender">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#mortuary -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#mortuary">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#motorcycle -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#motorcycle">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#motorcycle_parking -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#motorcycle_parking">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#motorcycle_repair -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#motorcycle_repair">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#music -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#music">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#music_school -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#music_school">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#musical_instrument -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#musical_instrument">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#newsagent -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#newsagent">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#nightclub -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#nightclub">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#nursing_home -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#nursing_home">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#nutrition_supplements -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#nutrition_supplements">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#office_supplies -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#office_supplies">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#optician -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#optician">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#organic -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#organic">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#outdoor -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#outdoor">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#paint -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#paint">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#parking -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#parking">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#parking_entrance -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#parking_entrance">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#parking_space -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#parking_space">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#party -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#party">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pasta -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pasta">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pastry -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pastry">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pawnbroker -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pawnbroker">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#payment_terminal -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#payment_terminal">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#perfumery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#perfumery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pet -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pet">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pet_food -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pet_food">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pet_grooming -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pet_grooming">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pharmacy -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pharmacy">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#photo -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#photo">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#place_of_mourning -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#place_of_mourning">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#place_of_worship -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#place_of_worship">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#planetarium -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#planetarium">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#plant_nursery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#plant_nursery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#police -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#police">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#post_box -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#post_box">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#post_office -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#post_office">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pottery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pottery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#printer_ink -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#printer_ink">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#prison -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#prison">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#pub -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#pub">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#public_bath -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#public_bath">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#public_bookcase -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#public_bookcase">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#public_building -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#public_building">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#public_transport_tickets -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#public_transport_tickets">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#radiotechnics -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#radiotechnics">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#recycling -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#recycling">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#research_institute -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#research_institute">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#restaurant -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#restaurant">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#rv_storage -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#rv_storage">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#sanitary_dump_station -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#sanitary_dump_station">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#school -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#school">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#seafood -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#seafood">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#second_hand -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#second_hand">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#sewing -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#sewing">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#shelter -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#shelter">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#shoes -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#shoes">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#shower -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#shower">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#smoking_area -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#smoking_area">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#social_centre -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#social_centre">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#social_facility -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#social_facility">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#spa -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#spa">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#sports -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#sports">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#stables -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#stables">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#stairs -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#stairs">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#stationery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#stationery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#storage_rental -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#storage_rental">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#stove -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#stove">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#stripclub -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#stripclub">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#studio -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#studio">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#supermarket -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#supermarket">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#swimming_pool -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#swimming_pool">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#swingerclub -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#swingerclub">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tailor -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tailor">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tattoo -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tattoo">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#taxi -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#taxi">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tea -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tea">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#telecommunication -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#telecommunication">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#telephone -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#telephone">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#theatre -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#theatre">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#ticket -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#ticket">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#ticket_validator -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#ticket_validator">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tiles -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tiles">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tobacco -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tobacco">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#toilets -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#toilets">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#townhall -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#townhall">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#toy_library -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#toy_library">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#toys -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#toys">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#traffic_education_area -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#traffic_education_area">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#travel_agency -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#travel_agency">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#trolley_bay -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#trolley_bay">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tyres -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tyres">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#university -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#university">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#variety_store -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#variety_store">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#vehicle_inspection -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#vehicle_inspection">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#vending_machine -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#vending_machine">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#veterinary -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#veterinary">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#video -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#video">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#video_games -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#video_games">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#waste_basket -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#waste_basket">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#waste_disposal -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#waste_disposal">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#waste_transfer_station -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#waste_transfer_station">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#watches -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#watches">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#water -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#water">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#water_point -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#water_point">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#water_sports -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#water_sports">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#weapons -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#weapons">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#weighbridge -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#weighbridge">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#wholesale -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#wholesale">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#wifi -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#wifi">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#window_blind -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#window_blind">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#wine -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#wine">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#winery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#winery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#wood -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#wood">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#yes -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#yes">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bakery;pastry -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bakery;pastry">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_rental;bar -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#bicycle_rental;bar">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#cafe;restaurant -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#cafe;restaurant">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Amenity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#car;car_repair -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#car;car_repair">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#chocolate;wine -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#chocolate;wine">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#plywood;Lumber -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#plywood;Lumber">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#seafood,Greengrocer -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#seafood,Greengrocer">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tobacco;newsagent -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tobacco;newsagent">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#tobacco;stationery -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#tobacco;stationery">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#window_blind;doors -->
+
+    <owl:NamedIndividual rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#window_blind;doors">
+        <rdf:type rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#Shop"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#amenityIsInCity"/>
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#buildingIsInCity"/>
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#nodeIsInCity"/>
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#roadIsInCity"/>
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#shopIsInCity"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasEndNode"/>
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasMiddleNode"/>
+            <rdf:Description rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasStartNode"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
 
 
 
