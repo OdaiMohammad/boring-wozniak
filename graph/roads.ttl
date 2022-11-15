@@ -1,150 +1,179 @@
 @prefix osmo: <http://www.dei.unipd.it/database2/cutomOSMOntology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-osmo: a osmo:Road ;
-    osmo:hasId 4429697,
-        4438286,
-        4438335,
-        4438345,
-        4448298,
-        4451185,
-        4452610,
-        4485372,
-        4597767,
-        4617361,
-        4638162,
-        4638198,
-        4708287,
-        4710516,
-        4710517,
-        4710518,
-        4710519 ;
-    osmo:hasLength 7.25e-01,
-        1.997e+00,
-        2.187e+00,
-        2.332e+00,
-        2.416e+00,
-        3.321e+00,
-        3.659e+00,
-        3.789e+00,
-        3.962e+00,
-        4.519e+00,
-        4.676e+00,
-        4.8e+00,
-        4.999e+00,
-        5.557e+00,
-        5.703e+00,
-        6.27e+00,
-        7.007e+00,
-        7.139e+00,
-        7.528e+00,
-        7.721e+00,
-        7.762e+00,
-        7.94e+00,
-        8.184e+00,
-        9.166e+00,
-        9.276e+00,
-        9.654e+00,
-        9.975e+00,
-        1.0389e+01,
-        1.0833e+01,
-        1.0859e+01,
-        1.0861e+01,
-        1.0867e+01,
-        1.0905e+01,
-        1.0979e+01,
-        1.1253e+01,
-        1.1517e+01,
-        1.237e+01,
-        1.2579e+01,
-        1.2581e+01,
-        1.2582e+01,
-        1.2584e+01,
-        1.2586e+01,
-        1.2587e+01,
-        1.2589e+01,
-        1.2895e+01,
-        1.3198e+01,
-        1.3204e+01,
-        1.3394e+01,
-        1.3781e+01,
-        1.4472e+01,
-        1.4879e+01,
-        1.488e+01,
-        1.4881e+01,
-        1.4884e+01,
-        1.7974e+01,
-        1.85e+01,
-        1.9256e+01,
-        2.0541e+01,
-        2.0615e+01,
-        2.0822e+01,
-        2.1754e+01,
-        2.3133e+01,
-        3.1736e+01,
-        3.4135e+01,
-        3.4269e+01,
-        3.4702e+01,
-        3.6463e+01,
-        3.6758e+01,
-        3.6798e+01,
-        3.6827e+01,
-        3.7779e+01,
-        4.0259e+01,
-        4.027e+01,
-        4.6674e+01,
-        4.8631e+01,
-        5.1301e+01,
-        5.2344e+01,
-        5.3492e+01,
-        5.4017e+01,
-        5.5286e+01,
-        5.6281e+01,
-        5.877e+01,
-        5.9012e+01,
-        6.0756e+01,
-        6.3404e+01,
-        6.47e+01,
-        7.5168e+01,
-        7.8686e+01,
-        8.3951e+01,
-        8.7825e+01,
-        1.00993e+02,
-        1.11968e+02,
-        1.17807e+02,
-        1.21958e+02,
-        2.21834e+02,
-        2.2375e+02,
-        3.0184e+02,
-        3.17304e+02,
-        3.19693e+02,
-        8.33466e+02 ;
-    osmo:hasMaxSpeed 50,
-        90,
-        "None"^^xsd:integer ;
-    osmo:hasName "Calle del Teatro o de la Commedia"^^xsd:string,
-        "Fondamenta Vetrai"^^xsd:string,
-        "Fondamenta dei Tolentini"^^xsd:string,
-        "None"^^xsd:string,
-        "Via Dardanelli"^^xsd:string,
-        "Via Giannantonio Selva"^^xsd:string,
-        "Via Martiri della Libert‡"^^xsd:string,
-        "Via Monte Abetone"^^xsd:string,
-        "Via Monviso"^^xsd:string,
-        "Via Passo Bernina"^^xsd:string,
-        "Via Passo Mauria"^^xsd:string,
-        "Via Triestina"^^xsd:string,
-        "Viale Umberto Klinger"^^xsd:string ;
-    osmo:hasNumberOfLanes 0,
-        1,
-        2,
-        3 ;
-    osmo:hasSurface "None"^^xsd:string,
-        "asphalt"^^xsd:string,
-        "paving_stones"^^xsd:string ;
-    osmo:isLit false,
-        true ;
-    osmo:isOneWay false,
-        true ;
+osmo:road4429697 a osmo:Road ;
+    osmo:hasId 4429697 ;
+    osmo:hasLength 296.72 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Fondamenta Vetrai"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "paving_stones"^^xsd:string ;
+    osmo:isLit true ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4438335 a osmo:Road ;
+    osmo:hasId 4438335 ;
+    osmo:hasLength 538.37 ;
+    osmo:hasMaxSpeed 50 ;
+    osmo:hasName "Viale Umberto Klinger"^^xsd:string ;
+    osmo:hasNumberOfLanes 2 ;
+    osmo:hasSurface "asphalt"^^xsd:string ;
+    osmo:isLit true ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4438345 a osmo:Road ;
+    osmo:hasId 4438345 ;
+    osmo:hasLength 51.3 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Giannantonio Selva"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay true ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4448298 a osmo:Road ;
+    osmo:hasId 4448298 ;
+    osmo:hasLength 167.78 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Dardanelli"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay true ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4451185 a osmo:Road ;
+    osmo:hasId 4451185 ;
+    osmo:hasLength 50.99 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Calle del Teatro o de la Commedia"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "paving_stones"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4452610 a osmo:Road ;
+    osmo:hasId 4452610 ;
+    osmo:hasLength 100.72 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Fondamenta dei Tolentini"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "paving_stones"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4617361 a osmo:Road ;
+    osmo:hasId 4617361 ;
+    osmo:hasLength 147.03 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Triestina"^^xsd:string ;
+    osmo:hasNumberOfLanes 2 ;
+    osmo:hasSurface "asphalt"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4708287 a osmo:Road ;
+    osmo:hasId 4708287 ;
+    osmo:hasLength 887.54 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Martiri della Libert√†"^^xsd:string ;
+    osmo:hasNumberOfLanes 2 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay true ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710516 a osmo:Road ;
+    osmo:hasId 4710516 ;
+    osmo:hasLength 66.89 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Passo Mauria"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710517 a osmo:Road ;
+    osmo:hasId 4710517 ;
+    osmo:hasLength 202.87 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Monte Abetone"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710518 a osmo:Road ;
+    osmo:hasId 4710518 ;
+    osmo:hasLength 285.32 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Passo Bernina"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710519 a osmo:Road ;
+    osmo:hasId 4710519 ;
+    osmo:hasLength 131.56 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Monviso"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay true ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710522 a osmo:Road ;
+    osmo:hasId 4710522 ;
+    osmo:hasLength 171.11 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Marmolada"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "None"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710524 a osmo:Road ;
+    osmo:hasId 4710524 ;
+    osmo:hasLength 152.38 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Passo Pordoi"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "asphalt"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710541 a osmo:Road ;
+    osmo:hasId 4710541 ;
+    osmo:hasLength 293.86 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via San Maurizio"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "asphalt"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
+    osmo:isOvertakingAllowed false .
+
+osmo:road4710631 a osmo:Road ;
+    osmo:hasId 4710631 ;
+    osmo:hasLength 171.45 ;
+    osmo:hasMaxSpeed "None"^^xsd:integer ;
+    osmo:hasName "Via Borgo Alto"^^xsd:string ;
+    osmo:hasNumberOfLanes 0 ;
+    osmo:hasSurface "asphalt"^^xsd:string ;
+    osmo:isLit false ;
+    osmo:isOneWay false ;
     osmo:isOvertakingAllowed false .
 
