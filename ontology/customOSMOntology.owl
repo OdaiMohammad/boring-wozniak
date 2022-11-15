@@ -344,9 +344,9 @@ Yongxiang Ji</rdfs:isDefinedBy>
     
 
 
-    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitutde -->
+    <!-- http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitude -->
 
-    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitutde">
+    <owl:DatatypeProperty rdf:about="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitude">
         <rdfs:subPropertyOf rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasCoordinate"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     </owl:DatatypeProperty>
@@ -606,7 +606,7 @@ Yongxiang Ji</rdfs:isDefinedBy>
                         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitutde"/>
+                        <owl:onProperty rdf:resource="http://www.dei.unipd.it/database2/cutomOSMOntology#hasLongitude"/>
                         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
