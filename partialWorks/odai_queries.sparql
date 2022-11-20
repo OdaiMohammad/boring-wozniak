@@ -1,7 +1,8 @@
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-# Get cities ordered from least to most fun
+# Get cities ordered from most to least fun
+
 SELECT ?name (count(?building) as ?funCount) WHERE
 {
     ?city a osmo:City ;
@@ -23,3 +24,42 @@ ASK WHERE
     FILTER NOT EXISTS{?building osmo:hasUse "university";
             osmo:isInCity ?city}
 }
+
+# Get streets of Padova ordered from having the most to the least shops
+
+SELECT ?name (count(?shop) as ?shopsCount) WHERE
+{
+    ?city a osmo:City ;
+    	 osmo:hasName "Padova".
+    ?road a osmo:Road;
+          osmo:isInCity ?city ;
+          osmo:hasName ?name .
+    ?shop a osmo:Shop ;
+    		osmo:isOnRoad ?road
+}
+group by ?name
+
+# Get cities ordered from most to least covered by bus transport
+
+SELECT ?name ((xsd:float(?busRoadCount)/xsd:float(?roadCount))*100 AS ?result) WHERE {
+    {
+        SELECT ?name (count(?busRoad) as ?busRoadCount) WHERE {
+            ?city a osmo:City ;
+                osmo:hasName ?name .
+            ?busRoad a osmo:Road ;
+                osmo:isInCity ?city ;
+                osmo:isBusRoad True .
+        }
+        GROUP BY ?name
+    }
+    {
+        SELECT ?name (count(?road) as ?roadCount) WHERE {
+            ?city a osmo:City ;
+                osmo:hasName ?name .
+            ?road a osmo:Road ;
+                osmo:isInCity ?city .
+        }
+        GROUP BY ?name
+    }
+}
+ORDER BY DESC (?result)
