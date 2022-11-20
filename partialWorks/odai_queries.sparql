@@ -1,0 +1,25 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Get cities ordered from least to most fun
+SELECT ?name (count(?building) as ?funCount) WHERE
+{
+    ?city a osmo:City ;
+    	 osmo:hasName ?name.
+  	?building osmo:hasUse ?use;
+            osmo:isInCity ?city
+
+     FILTER(?use IN ("bar", "cafe", "restaurant", "pub", "nightclub"))
+}
+group BY ?name
+order by desc(?funCount)
+
+# Are there cities that don't have universities?
+
+ASK WHERE
+{
+    ?city a osmo:City ;
+          osmo:hasName ?name .
+    FILTER NOT EXISTS{?building osmo:hasUse "university";
+            osmo:isInCity ?city}
+}
