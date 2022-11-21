@@ -139,3 +139,26 @@ SELECT DISTINCT ?name ?website ?housenumber ?phone ?opening_hours WHERE
               osmo:hasEmail ?email;
               osmo:hasOpeningHours ?opening_hours;
 }
+
+#Shops open 24/7 near Padova/Venezia
+
+PREFIX osmo: <http://www.dei.unipd.it/database2/cutomOSMOntology#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?name ?type ?cityName ?roadName ?civicNumber where
+{
+	?amenity a osmo:Amenity;
+		osmo:hasName ?name;
+		osmo:hasOpeningHours "24/7"^^xsd:string;
+		osmo:hasLatitude ?latitude;
+		osmo:hasLongitude ?longitude;
+		osmo:isInCity ?city;
+		osmo:isOnRoad ?road.
+	?city a osmo:City;
+		osmo:hasName ?cityName.
+	?road a osmo:Road;
+		osmo:hasName ?roadName.
+    optional {?amenity osmo:hasCivilNumber ?civicNumber;
+                       osmo:hasUse ?type}. 
+	filter (?latitude - "45.1223"^^xsd:decimal < 0.5 && ?longitude - "12.1012"^^xsd:decimal < 0.5)
+}
+Order by ?cityName
