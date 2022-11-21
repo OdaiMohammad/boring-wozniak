@@ -1,0 +1,107 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX osmo: <http://www.dei.unipd.it/database2/cutomOSMOntology#>
+
+# Look at shops that are open in night time
+
+SELECT DISTINCT ?name ?street ?opening_hours WHERE
+{
+    ?building osmo:hasOpeningHours opening_hours;
+              osmo:hasName ?name;
+              osmo:hasStreetName ?street.
+    FILTER (?opening_hours > 22 || ?opening_hours < 6 )        
+}
+
+# Get building infos located in a plaza (website, civil number, phone number..)
+
+SELECT DISTINCT ?name ?website ?housenumber ?phone ?opening_hours WHERE
+{
+    ?road osmo:hasName "Via Umberto I"^^xsd:string. 
+    ?building osmo:hasName ?name;
+              osmo:hasWebsite ?website;
+              osmo:hasCivilNumber ?addr:housenumber;
+              osmo:hasPhone ?phone;
+              osmo:hasEmail ?email;
+              osmo:hasOpeningHours ?opening_hours;
+}
+
+# Check if there are amenities for students
+
+SELECT DISTINCT ?name ?addr:street WHERE
+{
+    ?amenity osmo:hasUse "students"^^xsd:string.
+}
+
+# Look where the library(amenity) is and if it's possible to reach it by bike
+
+SELECT DISTINCT ?amenity ?bycicle_road WHERE
+{
+    ?amenity osmo:hasUse "library"^^xsd:string;
+             osmo:hasStreetName ?street.
+    ?road osmo:hasName ?street;
+          osmo:isBycicleRoad ?bycicle_road.
+}
+
+# Check if there's a busway that takes to the gym(amenity)
+
+SELECT DISTINCT ?busway ?amenity WHERE
+{
+    ?amenity osmo:hasUse "gym"^^xsd:string;
+             osmo:hasStreetName ?street.
+    ?road osmo:hasName ?street;
+          osmo:isBusRoad ?busway.
+}
+
+SELECT DISTINCT ?amenity ?street WHERE
+{
+    ?amenity osmo:hasUse "gym"^^xsd:string;
+             osmo:hasStreetName ?street.
+}
+
+# Get the website for a barbershop(amenety)
+
+SELECT DISTINCT ?amenity ?website WHERE
+{
+    ?amenity osmo:hasUse "barbershop"^^xsd:string;
+             osmo:website ?website.
+    
+}
+
+# Return the number of oneway roads in Padova
+
+SELECT ?oneway (COUNT(?oneway)as ?howmany) WHERE
+{
+    ?city osmo:city "Padova"^^xsd:string.
+    ?road osmo:isOneWay “true”^^xsd:boolean.
+}
+
+# Return the number of restaurants  in Venice
+
+SELECT ?amenity (COUNT(?amenity)as ?howmany) WHERE
+{
+    ?city osmo:city "Venice"^^xsd:string.
+    ?amenity osmo:hasUse "[Rr]estaurant*"^^xsd:string.
+}
+
+SELECT ?city (COUNT(?road) as ?howmany) WHERE
+{
+    ?city osmo:hasName ?city.
+    ?road osmo:roadIsInCity ?city;
+          osmo:hasName ?name;
+          osmo:hasId ?id;
+}
+GROUP BY ?city
+ORDER BY ?city
+
+
+# Return a list of the top 10 highest buildings and their city
+
+SELECT ?name WHERE
+{
+    ?city a osmo:City;
+        osmo:hasName.
+    ?building osmo:hasHeight ?height;
+        osmo:hasName ?name2.
+}
+group BY ?name2
+order BY desc(?height)
+LIMIT 10
