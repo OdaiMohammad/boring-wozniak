@@ -95,13 +95,13 @@ ORDER BY ?city
 
 # Return a list of the top 10 highest buildings and their city
 
-SELECT ?name WHERE
+SELECT ?name ?name2 ?height WHERE
 {
     ?city a osmo:City;
-        osmo:hasName.
+        osmo:hasName ?name.
     ?building osmo:hasHeight ?height;
         osmo:hasName ?name2.
 }
-group BY ?name2
+group BY ?name ?name2 ?height
 order BY desc(?height)
 LIMIT 10
