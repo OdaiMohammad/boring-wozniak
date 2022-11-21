@@ -1,4 +1,4 @@
-# number of places to buy alcohol in a city
+#number of places to buy alcohol in a city
 
 PREFIX osmo: <http://www.dei.unipd.it/database2/cutomOSMOntology#>
 Select ?cityName ?roadName (count(?bars) as ?numberOfBars) where
@@ -16,7 +16,7 @@ Select ?cityName ?roadName (count(?bars) as ?numberOfBars) where
 group by ?cityName ?roadName
 order by desc(?numberOfBars)
 
-#shos names and number of each of them 
+#shops names and number of each of them 
 
 prefix osmo: <http://www.dei.unipd.it/database2/cutomOSMOntology#> 
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -48,7 +48,7 @@ where{
 order by desc(?buildingName) 
 limit 20
 
-# return the full list of shop types order by their quantity
+#return the full list of shop types order by their quantity
 
 prefix osmo: <http://www.dei.unipd.it/database2/cutomOSMOntology#> 
 prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
@@ -64,7 +64,7 @@ order by desc(?shopTypeCount)
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-# Get cities ordered from most to least fun
+#Get cities ordered from most to least fun
 
 SELECT ?name (count(?building) as ?funCount) WHERE
 {
@@ -78,7 +78,7 @@ SELECT ?name (count(?building) as ?funCount) WHERE
 group BY ?name
 order by desc(?funCount)
 
-# Are there cities that don't have universities?
+#Are there cities that don't have universities?
 
 ASK WHERE
 {
@@ -88,7 +88,7 @@ ASK WHERE
             osmo:isInCity ?city}
 }
 
-# Get streets of Padova ordered from having the most to the least shops
+#Get streets of Padova ordered from having the most to the least shops
 
 SELECT ?name (count(?shop) as ?shopsCount) WHERE
 {
@@ -102,7 +102,7 @@ SELECT ?name (count(?shop) as ?shopsCount) WHERE
 }
 group by ?name
 
-# Get cities ordered from most to least covered by bus transport
+#Get cities ordered from most to least covered by bus transport
 
 SELECT ?name ((xsd:float(?busRoadCount)/xsd:float(?roadCount))*100 AS ?result) WHERE {
     {
@@ -127,7 +127,7 @@ SELECT ?name ((xsd:float(?busRoadCount)/xsd:float(?roadCount))*100 AS ?result) W
 }
 ORDER BY DESC (?result)
 
-# Get building infos located in a plaza/road (website, civil number, phone number..)
+#Get building infos located in a plaza/road (website, civil number, phone number..)
 
 SELECT DISTINCT ?name ?website ?housenumber ?phone ?opening_hours WHERE
 {
